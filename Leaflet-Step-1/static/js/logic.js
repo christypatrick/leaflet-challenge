@@ -66,18 +66,7 @@ d3.json(queryUrl, function(data) {
         layer.bindPopup(`Depth: ${feature.geometry.coordinates[2]}<br>Magnitude: ${feature.properties.mag}<br>Location: ${feature.properties.place}<br>Date: ${Date(feature.properties.time)}`);
       }
     }).addTo(myMap);
-  
-    
-    // color function to be used when creating the legend
-    function getColor(d) {
-    return d > 90 ? "#FF0000" :
-           d > 70  ? "#FF8C00" :
-           d > 50  ? "#FBB124" :
-           d > 30  ? "#FFFF00" :
-           d > 10  ? "#ADFF2F" :
-                    "#32CD32";
-    }
-    
+     
     // an object legend
     var legend = L.control({position: "bottomright"});
   
@@ -89,27 +78,17 @@ d3.json(queryUrl, function(data) {
       // var grades = [0, 1, 2, 3, 4, 5];
           depthRange = [-10, 10, 30, 50, 70, 90],
           labels = [];
-      // var colors = [
-      //   "#32CD32",
-      //   "#ADFF2F",
-      //   "#FFFF00",
-      //   "#FBB124",
-      //   "#FF8C00",
-      //   "#FF0000"
-      // ];
   
       // Looping through
       for (var i = 0; i < depthRange.length; i++) {
-        div.innerHTML +=
-        // "<i style='background: " + colors[i] + "'></i> " +
-        // grades[i] + (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+");
-      
-          '<i style="background:' + getColor(depthRange[i] + 1) + '"></i> ' +
-          depthRange[i] + (depthRange[i + 1] ? '&ndash;' + depthRange[i + 1] + '<br>' : '+');
-      }
+        div.innerHTML += '<i style="background:' 
+        + getColor(depthRange[i] + 1) + '"></i> '
+        + depthRange[i] + (depthRange[i + 1] ? '&ndash;' + depthRange[i + 1] + '<br>' : '+');
+        }
+           
       return div;
     };
   
-    // Finally, we our legend to the map.
+    // Add the legend to the map.
     legend.addTo(myMap);
   });
