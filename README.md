@@ -8,3 +8,5 @@ The USGS is interested in building a new set of tools that will allow them visua
 ### Visualizing the Earthquake Dataset:
 The leaflet-challenge exploresthe earthquake data for the last 7 days.  Map marker size indicates magnitude of the earthquakes, while the colors represent the depth.  The higher the magnitude, the larger the circles.  The greater the depth, the darker the color.  Below is a screenshot of the map created using leaflet.
 ![Default_map](https://github.com/christypatrick/leaflet-challenge/blob/main/Leaflet-Step-1/Images/Default%20View%20with%20Legend.png)
+<br>
+![Full_map](https://github.com/christypatrick/leaflet-challenge/blob/main/Leaflet-Step-1/Images/Zoom%20Out%20with%20Legend.png)
